@@ -1,6 +1,6 @@
 {
-    "name": "phpunit/phpunit-selenium",
-    "description": "Selenium Server integration for PHPUnit",
+    "name": "fr3d/phpunit-selenium",
+    "description": "Selenium v1 Server integration for PHPUnit v5",
     "type": "library",
     "keywords": [
         "xunit",
@@ -40,6 +40,9 @@
     },
     "require-dev": {
        "phing/phing": "2.*"
+    },
+    "conflict": {
+        "phpunit/phpunit-selenium": "*"
     },
     "autoload": {
         "classmap": [
