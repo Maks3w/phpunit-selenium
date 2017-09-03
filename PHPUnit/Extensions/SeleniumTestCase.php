@@ -493,7 +493,7 @@
  * @method unknown  windowFocus()
  * @method unknown  windowMaximize()
  */
-abstract class PHPUnit_Extensions_SeleniumTestCase extends PHPUnit_Framework_TestCase
+abstract class PHPUnit_Extensions_SeleniumTestCase extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var    array
@@ -616,7 +616,7 @@ abstract class PHPUnit_Extensions_SeleniumTestCase extends PHPUnit_Framework_Tes
 
     /**
      * @param  string $className
-     * @return PHPUnit_Framework_TestSuite
+     * @return \PHPUnit\Framework\TestSuite
      */
     public static function suite($className)
     {
@@ -627,11 +627,11 @@ abstract class PHPUnit_Extensions_SeleniumTestCase extends PHPUnit_Framework_Tes
      * Runs the test case and collects the results in a TestResult object.
      * If no TestResult object is passed a new one will be created.
      *
-     * @param  PHPUnit_Framework_TestResult $result
-     * @return PHPUnit_Framework_TestResult
+     * @param  \PHPUnit\Framework\TestResult $result
+     * @return \PHPUnit\Framework\TestResult
      * @throws InvalidArgumentException
      */
-    public function run(PHPUnit_Framework_TestResult $result = NULL)
+    public function run(\PHPUnit\Framework\TestResult $result = NULL)
     {
         if ($result === NULL) {
             $result = $this->createResult();
@@ -742,7 +742,7 @@ abstract class PHPUnit_Extensions_SeleniumTestCase extends PHPUnit_Framework_Tes
         try {
             fsockopen($this->drivers[0]->getHost(), $this->drivers[0]->getPort(), $errno, $errstr, $this->serverConnectionTimeOut);
             $this->serverRunning = TRUE;
-        } catch (PHPUnit_Framework_Error_Warning $e) {
+        } catch (\PHPUnit\Framework\Error\Warning $e) {
             $this->markTestSkipped(
                 sprintf(
                     'Could not connect to the Selenium Server on %s:%d.',
@@ -1131,7 +1131,7 @@ abstract class PHPUnit_Extensions_SeleniumTestCase extends PHPUnit_Framework_Tes
             $buffer = "Issues while capturing the screenshot:\n" . $another->getMessage();
         }
 
-        if ($e instanceof PHPUnit_Framework_ExpectationFailedException
+        if ($e instanceof \PHPUnit\Framework\ExpectationFailedException
          && is_object($e->getComparisonFailure())) {
             $message = $e->getComparisonFailure()->toString();
         } else {
@@ -1142,19 +1142,19 @@ abstract class PHPUnit_Extensions_SeleniumTestCase extends PHPUnit_Framework_Tes
 
         // gain the screenshot path, lose the stack trace
         if ($this->captureScreenshotOnFailure) {
-            throw new PHPUnit_Framework_Error($buffer, $e->getCode(), $e->getFile(), $e->getLine());
+            throw new \PHPUnit\Framework\Error\Error($buffer, $e->getCode(), $e->getFile(), $e->getLine());
         }
 
         // yes to stack trace and everything
-        if ($e instanceof PHPUnit_Framework_IncompleteTestError
-         || $e instanceof PHPUnit_Framework_SkippedTestError
-         || $e instanceof PHPUnit_Framework_AssertionFailedError) {
+        if ($e instanceof \PHPUnit\Framework\IncompleteTestError
+         || $e instanceof \PHPUnit\Framework\SkippedTestError
+         || $e instanceof \PHPUnit\Framework\AssertionFailedError) {
             throw $e;
         }
 
         // yes to stack trace, only for F tests
         // PHPUnit issue 471 prevents getTrace() from being useful
-        throw new PHPUnit_Framework_Error($buffer, $e->getCode(), $e->getFile(), $e->getLine(), $e);
+        throw new \PHPUnit\Framework\Error\Error($buffer, $e->getCode(), $e->getFile(), $e->getLine(), $e);
     }
 
     private function restoreSessionStateAfterFailedTest()

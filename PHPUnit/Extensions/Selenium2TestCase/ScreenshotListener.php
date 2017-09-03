@@ -54,8 +54,8 @@
  * @since      Class available since Release 1.2.8
  */
 class PHPUnit_Extensions_Selenium2TestCase_ScreenshotListener 
-    extends PHPUnit_Framework_BaseTestListener
-    implements PHPUnit_Framework_TestListener
+    extends \PHPUnit\Framework\BaseTestListener
+    implements \PHPUnit\Framework\TestListener
 {
     private $directory;
 
@@ -64,17 +64,17 @@ class PHPUnit_Extensions_Selenium2TestCase_ScreenshotListener
         $this->directory = $directory;
     }
 
-    public function addError(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addError(\PHPUnit\Framework\Test $test, Exception $e, $time)
     {
         $this->storeAScreenshot($test);
     }
 
-    public function addFailure(PHPUnit_Framework_Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\AssertionFailedError $e, $time)
     {
         $this->storeAScreenshot($test);
     }
 
-    private function storeAScreenshot(PHPUnit_Framework_Test $test)
+    private function storeAScreenshot(\PHPUnit\Framework\Test $test)
     {
         if ($test instanceof PHPUnit_Extensions_Selenium2TestCase)
         {

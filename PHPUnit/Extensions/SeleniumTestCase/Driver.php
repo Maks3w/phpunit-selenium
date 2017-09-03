@@ -171,7 +171,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function start()
     {
         if ($this->browserUrl == NULL) {
-            throw new PHPUnit_Framework_Exception(
+            throw new \PHPUnit\Framework\Exception(
               'setBrowserUrl() needs to be called before start().'
             );
         }
@@ -240,7 +240,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setCollectCodeCoverageInformation($flag)
     {
         if (!is_bool($flag)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'boolean');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'boolean');
         }
 
         $this->collectCodeCoverageInformation = $flag;
@@ -277,7 +277,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setName($name)
     {
         if (!is_string($name)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'string');
         }
 
         $this->name = $name;
@@ -298,7 +298,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setBrowser($browser)
     {
         if (!is_string($browser)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'string');
         }
 
         $this->browser = $browser;
@@ -319,7 +319,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setBrowserUrl($browserUrl)
     {
         if (!is_string($browserUrl)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'string');
         }
 
         $this->browserUrl = $browserUrl;
@@ -332,7 +332,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setHost($host)
     {
         if (!is_string($host)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'string');
         }
 
         $this->host = $host;
@@ -354,7 +354,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setPort($port)
     {
         if (!is_int($port)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'integer');
         }
 
         $this->port = $port;
@@ -376,7 +376,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setTimeout($timeout)
     {
         if (!is_int($timeout)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'integer');
         }
 
         $this->seleniumTimeout = $timeout;
@@ -389,7 +389,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setHttpTimeout($timeout)
     {
         if (!is_int($timeout)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'integer');
         }
 
         $this->httpTimeout = $timeout;
@@ -402,7 +402,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setSleep($seconds)
     {
         if (!is_int($seconds)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'integer');
         }
 
         $this->sleep = $seconds;
@@ -418,7 +418,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setWait($seconds)
     {
         if (!is_int($seconds)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'integer');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'integer');
         }
 
         $this->wait = $seconds;
@@ -434,7 +434,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setWaitForPageToLoad($flag)
     {
         if (!is_bool($flag)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'boolean');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'boolean');
         }
 
         $this->useWaitForPageToLoad = $flag;
@@ -449,7 +449,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
 	public function setCaptureScreenshotOnFailure($flag)
     {
         if (!is_bool($flag)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'boolean');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'boolean');
         }
 
         $this->captureScreenshotOnFailure = $flag;
@@ -462,7 +462,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setScreenshotUrl($screenshotUrl)
     {
         if (!is_string($screenshotUrl)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'string');
         }
 
         $this->screenshotUrl = $screenshotUrl;
@@ -474,7 +474,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function setScreenshotPath($screenshotPath)
     {
         if (!is_string($screenshotPath)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'string');
         }
 
         $this->screenshotPath = $screenshotPath;
@@ -494,7 +494,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
     public function addUserCommand($command)
     {
         if (!is_string($command)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw \PHPUnit\Util\InvalidArgumentHelper::factory(1, 'string');
         }
         $this->userCommands[] = $command;
         return $this;
@@ -1106,8 +1106,8 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
             case 'false': return FALSE;
 
             default: {
-                throw new PHPUnit_Framework_Exception(
-                  'Result is neither "true" nor "false": ' . PHPUnit_Util_Type::export($result)
+                throw new \PHPUnit\Framework\Exception(
+                  'Result is neither "true" nor "false": ' . \PHPUnit\Util\Type::export($result)
                 );
             }
         }
@@ -1128,8 +1128,8 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
         $result = $this->getString($command, $arguments);
 
         if (!is_numeric($result)) {
-            throw new PHPUnit_Framework_Exception(
-              'Result is not numeric: ' . PHPUnit_Util_Type::export($result)
+            throw new \PHPUnit\Framework\Exception(
+              'Result is not numeric: ' . \PHPUnit\Util\Type::export($result)
             );
         }
 
@@ -1226,9 +1226,9 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
 
         if ($info['isBoolean']) {
             if (!isset($info['negative']) || !$info['negative']) {
-                PHPUnit_Framework_Assert::assertTrue($result, $message);
+                \PHPUnit\Framework\Assert::assertTrue($result, $message);
             } else {
-                PHPUnit_Framework_Assert::assertFalse($result, $message);
+                \PHPUnit\Framework\Assert::assertFalse($result, $message);
             }
         } else {
             if ($requiresTarget === TRUE) {
@@ -1241,9 +1241,9 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
                 $expected = substr($expected, strlen('exact:'));
 
                 if (!isset($info['negative']) || !$info['negative']) {
-                    PHPUnit_Framework_Assert::assertEquals($expected, $result, $message);
+                    \PHPUnit\Framework\Assert::assertEquals($expected, $result, $message);
                 } else {
-                    PHPUnit_Framework_Assert::assertNotEquals($expected, $result, $message);
+                    \PHPUnit\Framework\Assert::assertNotEquals($expected, $result, $message);
                 }
             } else {
                 $caseInsensitive = FALSE;
@@ -1274,11 +1274,11 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
                 }
 
                 if (!isset($info['negative']) || !$info['negative']) {
-                    PHPUnit_Framework_Assert::assertRegExp(
+                    \PHPUnit\Framework\Assert::assertRegExp(
                       $expected, $result, $message
                     );
                 } else {
-                    PHPUnit_Framework_Assert::assertNotRegExp(
+                    \PHPUnit\Framework\Assert::assertNotRegExp(
                       $expected, $result, $message
                     );
                 }
@@ -1292,7 +1292,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
             $this->assertCommand($command, $arguments, $info);
         }
 
-        catch (PHPUnit_Framework_AssertionFailedError $e) {
+        catch (\PHPUnit\Framework\AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
     }
@@ -1302,7 +1302,7 @@ class PHPUnit_Extensions_SeleniumTestCase_Driver
         $lastExceptionMessage = '';
         for ($second = 0; ; $second++) {
             if ($second > $this->httpTimeout) {
-                PHPUnit_Framework_Assert::fail(
+                \PHPUnit\Framework\Assert::fail(
                     "WaitFor timeout. \n"
                     . "Last exception message: \n" . $lastExceptionMessage
                 );
